@@ -13,26 +13,29 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "question")
+@Entity
 @Table(name = "question")
 public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long questionId;
+    @Column(name = "question_id")
+    private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "field_id")
-    private Field field;
+    @Column(name = "type")
+    private String type;
 
-    @Column
-    private String questionContent;
+    @Column(name = "content")
+    private String content;
 
-    @ManyToOne
-    @JoinColumn(name = "parent_question_id")
-    private Question parentQuestion;
+    @Column(name = "sub_content")
+    private String subContent;
+
+    @Column(name = "question_order")
+    private Long questionOrder;
 
     @ManyToOne
     @JoinColumn(name = "questionnaire_id")
     private Questionnaire questionnaire;
 
+    // Constructors, getters, and setters
 }

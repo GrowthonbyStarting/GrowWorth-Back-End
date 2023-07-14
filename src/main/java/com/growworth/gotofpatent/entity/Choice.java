@@ -13,19 +13,19 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "choice")
+@Entity
 @Table(name = "choice")
 public class Choice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long choiceId;
+    @Column(name = "choice_id")
+    private Long id;
 
+    @Column(name = "choice_content")
+    private String choiceContent;
     @ManyToOne
     @JoinColumn(name = "question_id")
     private Question question;
 
-    @Column
-    private String choiceContent;
-
-
+    // Constructors, getters, and setters
 }

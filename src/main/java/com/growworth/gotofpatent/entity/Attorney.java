@@ -11,37 +11,37 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "attorney")
+@Entity
 @Table(name = "attorney")
 public class Attorney {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long attorneyId;
+    @Column(name = "attorney_id")
+    private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "field_id")
-    private Field field;
+    @Column(name = "category")
+    private String category;
 
-    @Column
-    private String attorneyName;
+    @Column(name = "name")
+    private String name;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(name = "education", columnDefinition = "TEXT")
     private String education;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(name = "experience", columnDefinition = "TEXT")
     private String experience;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(name = "introduction", columnDefinition = "TEXT")
     private String introduction;
 
-    @Column
+    @Column(name = "type")
     private String type;
 
-    @Column
-    private String attorneyEmail;
+    @Column(name = "email")
+    private String email;
 
-    @Column
-    private String attorneyPhoneNumber;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
-
+    // Constructors, getters, and setters
 }

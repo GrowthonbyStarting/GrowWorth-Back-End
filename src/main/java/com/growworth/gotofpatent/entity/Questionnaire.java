@@ -11,13 +11,15 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "questionnaire")
+@Entity
 @Table(name = "questionnaire")
 public class Questionnaire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long questionnaireId;
+    @Column(name = "questionnaire_id")
+    private Long id;
 
-    @Column
+    @Column(name = "title")
     private String title;
+
 }

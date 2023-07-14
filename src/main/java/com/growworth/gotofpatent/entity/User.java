@@ -1,5 +1,7 @@
 package com.growworth.gotofpatent.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.growworth.gotofpatent.dto.UserFormRequestDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,21 +15,23 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "user")
+@Entity
 @Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    @Column(name = "user_id")
+    private Long id;
 
-    @Column
-    private String userName;
+    @Column(name = "name")
+    private String name;
 
-    @Column
-    private String userEmail;
+    @Column(name = "email")
+    private String email;
 
-    @Column
-    private String userPhoneNumber;
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
 
 }
 
